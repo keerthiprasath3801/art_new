@@ -1,0 +1,1095 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artem Clava India - Luxury Art for Inspired Living</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #01082d;
+            --secondary: #266ca9;
+            --accent: #4a90e2;
+            --light: #f8f9fa;
+            --dark: #01082d;
+            --text: #333;
+            --text-light: #6c757d;
+            --shadow: 0 4px 12px rgba(1, 8, 45, 0.1);
+            --transition: all 0.3s ease;
+        }
+
+        body {
+            color: var(--text);
+            line-height: 1.6;
+            background-color: #ffffff;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3, h4 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 700;
+        }
+
+        h2 {
+            font-size: 2rem;
+            position: relative;
+            padding-bottom: 15px;
+        }
+
+        h2:after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 60px;
+            height: 3px;
+            background-color: var(--secondary);
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background-color: var(--secondary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: var(--transition);
+            text-decoration: none;
+        }
+
+        .btn:hover {
+            background-color: var(--primary);
+            transform: translateY(-3px);
+            box-shadow: var(--shadow);
+        }
+
+        .btn-outline {
+            background-color: transparent;
+            border: 2px solid var(--secondary);
+            color: var(--secondary);
+        }
+
+        .btn-outline:hover {
+            background-color: var(--secondary);
+            color: white;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: var(--shadow);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 0;
+        }
+
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+
+        .logo span {
+            color: var(--secondary);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: var(--text);
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: var(--transition);
+        }
+
+        nav ul li a:hover {
+            color: var(--secondary);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(1, 8, 45, 0.7), rgba(1, 8, 45, 0.7)), url('https://images.unsplash.com/photo-1579546929662-711aa81148cf?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            color: white;
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+
+        /* Section Styles */
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .section-title h2 {
+            display: inline-block;
+        }
+
+        .section-title h2:after {
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        /* About Section */
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .about-text {
+            flex: 1;
+        }
+
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: var(--transition);
+        }
+
+        .about-image:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Services Section */
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-image {
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .service-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .service-card:hover .service-image img {
+            transform: scale(1.1);
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        .service-content ul {
+            margin-left: 20px;
+            margin-bottom: 20px;
+        }
+
+        .service-content li {
+            margin-bottom: 8px;
+        }
+
+        /* Courses Section */
+        .courses-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 40px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .tab-btn {
+            padding: 15px 30px;
+            background: none;
+            border: none;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: var(--transition);
+            border-bottom: 3px solid transparent;
+        }
+
+        .tab-btn.active {
+            color: var(--secondary);
+            border-bottom: 3px solid var(--secondary);
+        }
+
+        .tab-content {
+            display: none;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .course-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            border-left: 4px solid var(--secondary);
+        }
+
+        .course-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .course-item h4 {
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+
+        /* Community Section */
+        .community-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+
+        .community-text {
+            flex: 1;
+        }
+
+        .community-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+        }
+
+        .community-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+
+        /* Future Section */
+        .future-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+        }
+
+        .future-item {
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            transition: var(--transition);
+            border-top: 4px solid var(--secondary);
+        }
+
+        .future-item:hover {
+            transform: translateY(-10px);
+        }
+
+        .future-icon {
+            font-size: 2.5rem;
+            color: var(--secondary);
+            margin-bottom: 20px;
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+
+        .contact-info {
+            flex: 1;
+        }
+
+        .contact-details {
+            margin-top: 30px;
+        }
+
+        .contact-details p {
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        .contact-details i {
+            margin-right: 15px;
+            color: var(--secondary);
+            width: 20px;
+        }
+
+        .contact-form {
+            flex: 1;
+            background-color: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: var(--shadow);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .form-group textarea {
+            height: 150px;
+            resize: vertical;
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--primary);
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: #ddd;
+            text-decoration: none;
+            transition: var(--transition);
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-links a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 50%;
+            color: white;
+            transition: var(--transition);
+        }
+
+        .social-links a:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 30px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9rem;
+            color: #aaa;
+        }
+
+        /* Form Response Message */
+        .form-response {
+            display: none;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-response.success {
+            background-color: #d4edda;
+            color: #155724;
+            border: 1px solid #c3e6cb;
+        }
+
+        .form-response.error {
+            background-color: #f8d7da;
+            color: #721c24;
+            border: 1px solid #f5c6cb;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 992px) {
+            h1 {
+                font-size: 2.2rem;
+            }
+            
+            h2 {
+                font-size: 1.8rem;
+            }
+            
+            .about-content,
+            .community-content,
+            .contact-container {
+                flex-direction: column;
+            }
+            
+            .about-image,
+            .community-image {
+                order: -1;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header-container {
+                padding: 15px 0;
+            }
+            
+            nav ul {
+                display: none;
+                position: absolute;
+                top: 70px;
+                left: 0;
+                width: 100%;
+                background-color: white;
+                flex-direction: column;
+                box-shadow: var(--shadow);
+                padding: 20px 0;
+            }
+            
+            nav ul.active {
+                display: flex;
+            }
+            
+            nav ul li {
+                margin: 0;
+                text-align: center;
+            }
+            
+            nav ul li a {
+                display: block;
+                padding: 15px 0;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .hero {
+                padding: 100px 0;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            section {
+                padding: 60px 0;
+            }
+            
+            .courses-tabs {
+                flex-wrap: wrap;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1.1rem;
+            }
+            
+            .services-grid,
+            .future-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .course-list {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo">ARTEM <span>CLAVA</span></a>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#services">Services</a></li>
+                    <li><a href="#courses">Courses</a></li>
+                    <li><a href="#community">Community</a></li>
+                    <li><a href="#future">Future</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="container">
+            <h1>Luxury Art for Inspired Living</h1>
+            <p>Welcome to Artem Clava India — a creative house where art, design, and craftsmanship converge to redefine modern interiors and artistic education.</p>
+            <a href="#about" class="btn">Discover More</a>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="container">
+            <div class="about-content">
+                <div class="about-text">
+                    <h2>About Artem Clava</h2>
+                    <p>From handcrafted wall murals that replace wallpapers with timeless beauty, to our Fine Arts and Digital Art Academy shaping the next generation of artists, Artem Clava stands at the intersection of luxury and accessibility.</p>
+                    <p>We transform blank walls into stories, nurture creative minds into professionals, and create meaningful art experiences that connect emotion, space, and imagination.</p>
+                    <p>At Artem Clava, every brushstroke has purpose — and every creation carries a soul.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1541961017774-22349e4a1262?ixlib=rb-4.0.3&auto=format&fit=crop&w=958&q=80" alt="Art Studio">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+            </div>
+            <div class="services-grid">
+                <!-- Wall Mural Domain -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1586023492125-27b2c045efd7?ixlib=rb-4.0.3&auto=format&fit=crop&w=958&q=80" alt="Wall Mural">
+                    </div>
+                    <div class="service-content">
+                        <h3>Wall Mural Domain</h3>
+                        <p>Led by Creative Director Saran and founded by Gia Balan (Shrinija), we transform plain walls into timeless expressions of art and architecture.</p>
+                        <p><strong>Our Expertise Includes:</strong></p>
+                        <ul>
+                            <li>Hand-Painted Wall Murals</li>
+                            <li>Fresco Murals</li>
+                            <li>Premium Canvas Paintings</li>
+                            <li>Tile Paintings</li>
+                            <li>Concept-Based Interior Murals</li>
+                            <li>Restaurant, Café & Corporate Murals</li>
+                            <li>Heritage & Cultural Theme Murals</li>
+                        </ul>
+                        <p><strong>Upcoming Additions:</strong> GRC Murals & Sculptural Wall Art</p>
+                        <blockquote>"We don't decorate walls. We create stories that live on them."</blockquote>
+                    </div>
+                </div>
+
+                <!-- Art Therapy -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=934&q=80" alt="Art Therapy">
+                    </div>
+                    <div class="service-content">
+                        <h3>Art Therapy & Counseling</h3>
+                        <p>At Artem Clava, we believe that art is a language of healing. Our Art Therapy Course combines the science of psychology with the soul of creativity.</p>
+                        <p><strong>Program Modules:</strong></p>
+                        <ul>
+                            <li>Fundamentals of Art Therapy</li>
+                            <li>Colour Psychology & Emotion</li>
+                            <li>Expressive and Therapeutic Art Techniques</li>
+                            <li>Case Studies & Client Approaches</li>
+                            <li>Art as a Counseling Tool</li>
+                            <li>Certification in Art Therapy Practice</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Learn More</a>
+                    </div>
+                </div>
+
+                <!-- Teacher Training -->
+                <div class="service-card">
+                    <div class="service-image">
+                        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1002&q=80" alt="Teacher Training">
+                    </div>
+                    <div class="service-content">
+                        <h3>Art Teacher Training Program</h3>
+                        <p>Designed for those who aspire to teach art professionally and inspire the next generation of creatives.</p>
+                        <p><strong>Program Highlights:</strong></p>
+                        <ul>
+                            <li>Training in Minimum 3 Art Mediums</li>
+                            <li>Teaching Methodologies & Student Psychology</li>
+                            <li>Lesson Planning & Evaluation Techniques</li>
+                            <li>Classroom Practice Sessions</li>
+                            <li>Final Assessment & Certification</li>
+                        </ul>
+                        <a href="#contact" class="btn btn-outline">Enquire Now</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Courses</h2>
+            </div>
+            <div class="courses-tabs">
+                <button class="tab-btn active" data-tab="fine-arts">Fine Arts</button>
+                <button class="tab-btn" data-tab="digital-arts">Digital Arts</button>
+            </div>
+            
+            <div class="tab-content active" id="fine-arts">
+                <div class="course-list">
+                    <div class="course-item">
+                        <h4>Watercolor Painting</h4>
+                        <p>Master the fluid and transparent nature of watercolors.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Acrylic Painting</h4>
+                        <p>Learn versatile techniques with fast-drying acrylic paints.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Oil Painting</h4>
+                        <p>Explore the rich textures and blending of oil colors.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Pencil Shading</h4>
+                        <p>Develop skills in creating depth and dimension with pencils.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Oil Pastel Art</h4>
+                        <p>Create vibrant artworks with the unique texture of oil pastels.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Charcoal & Sketching</h4>
+                        <p>Master the dramatic effects of charcoal and sketching techniques.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Colour Theory & Composition</h4>
+                        <p>Understand the principles of color harmony and visual balance.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Mixed Media Art</h4>
+                        <p>Combine various materials and techniques for unique creations.</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="tab-content" id="digital-arts">
+                <div class="course-list">
+                    <div class="course-item">
+                        <h4>Procreate (Basic to Advanced)</h4>
+                        <p>Master digital painting on iPad with Procreate.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Digital Illustration & Painting</h4>
+                        <p>Create stunning digital artworks from concept to completion.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Character Design</h4>
+                        <p>Develop unique and compelling characters for various media.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Concept Art for Games & Media</h4>
+                        <p>Create visual representations for games, films, and animation.</p>
+                    </div>
+                    <div class="course-item">
+                        <h4>Portfolio Building & Branding</h4>
+                        <p>Learn to present your work professionally and build your brand.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="community-content">
+                <div class="community-text">
+                    <h2>Artesa - The Artist Community</h2>
+                    <p>Artesa is our exclusive community for artists, creators, and visionaries — a digital and physical space where art meets opportunity.</p>
+                    <p><strong>Artesa Offers:</strong></p>
+                    <ul>
+                        <li>Artist Networking & Collaboration</li>
+                        <li>Art Talks & Webinars with Experts</li>
+                        <li>Creative Challenges & Skill Growth Programs</li>
+                        <li>Community Exhibitions & Art Fairs</li>
+                        <li>Mentorship & Portfolio Reviews</li>
+                    </ul>
+                    <a href="#contact" class="btn">Join Artesa</a>
+                </div>
+                <div class="community-image">
+                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Artist Community">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Future Section -->
+    <section id="future">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Future Endeavours</h2>
+            </div>
+            <div class="future-grid">
+                <div class="future-item">
+                    <div class="future-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>GRC Murals & Sculptures</h3>
+                    <p>Expansion into GRC Murals & Architectural Sculptures for enhanced artistic expression.</p>
+                </div>
+                <div class="future-item">
+                    <div class="future-icon">
+                        <i class="fas fa-globe"></i>
+                    </div>
+                    <h3>Online Art School</h3>
+                    <p>Launch of Artem Clava Online Art School with global access to our courses.</p>
+                </div>
+                <div class="future-item">
+                    <div class="future-icon">
+                        <i class="fas fa-handshake"></i>
+                    </div>
+                    <h3>International Collaborations</h3>
+                    <p>International Collaborations & Art Residency Programs for global artistic exchange.</p>
+                </div>
+                <div class="future-item">
+                    <div class="future-icon">
+                        <i class="fas fa-users"></i>
+                    </div>
+                    <h3>Artisan Development</h3>
+                    <p>Artisan Development Initiatives under Artesa to nurture emerging talent.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" style="background-color: #f5f5f5;">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+            </div>
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We'd love to hear from you. Whether you're interested in our services, courses, or just want to learn more about Artem Clava, feel free to reach out.</p>
+                    
+                    <div class="contact-details">
+                        <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu, India</p>
+                        <p><i class="fas fa-envelope"></i> info@artemclava.in</p>
+                        <p><i class="fas fa-globe"></i> www.artemclava.in</p>
+                        <p><i class="fab fa-instagram"></i> @life_with.gia</p>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Your Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" id="subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                    <div id="formResponse" class="form-response"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Artem Clava</h3>
+                    <p>Luxury Art for Inspired Living. A creative house where art, design, and craftsmanship converge to redefine modern interiors and artistic education.</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#about">About</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#courses">Courses</a></li>
+                        <li><a href="#community">Community</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Our Services</h3>
+                    <ul>
+                        <li><a href="#services">Wall Murals</a></li>
+                        <li><a href="#services">Fine Arts Academy</a></li>
+                        <li><a href="#services">Digital Arts Academy</a></li>
+                        <li><a href="#services">Art Therapy</a></li>
+                        <li><a href="#services">Teacher Training</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-column">
+                    <h3>Contact Info</h3>
+                    <ul>
+                        <li><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu</li>
+                        <li><i class="fas fa-envelope"></i> info@artemclava.in</li>
+                        <li><i class="fas fa-phone"></i> +91 98765 43210</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="copyright">
+                <p>&copy; 2025 Artem Clava India. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+        
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+        
+        // Tab Functionality for Courses
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+        
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+        
+        // Form Submission with Response
+        const contactForm = document.getElementById('contactForm');
+        const formResponse = document.getElementById('formResponse');
+        
+        contactForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Get form data
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const subject = document.getElementById('subject').value;
+            const message = document.getElementById('message').value;
+            
+            // Simple validation
+            if(!name || !email || !subject || !message) {
+                showFormResponse('Please fill in all fields.', 'error');
+                return;
+            }
+            
+            // Simulate form submission (in a real scenario, you would send to a server)
+            showFormResponse('Thank you for your message! We will get back to you soon.', 'success');
+            
+            // Reset form
+            this.reset();
+        });
+        
+        function showFormResponse(message, type) {
+            formResponse.textContent = message;
+            formResponse.className = 'form-response ' + type;
+            formResponse.style.display = 'block';
+            
+            // Hide response after 5 seconds
+            setTimeout(() => {
+                formResponse.style.display = 'none';
+            }, 5000);
+        }
+        
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+            } else {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+            }
+        });
+    </script>
+</body>
+</html>
