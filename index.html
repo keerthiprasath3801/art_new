@@ -6,6 +6,7 @@
     <title>Artem Clava India - Luxury Art for Inspired Living</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"></script>
 </head>
 <body>
     <!-- Header -->
@@ -70,7 +71,7 @@
                 <!-- Wall Mural Domain -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="./assets/wall-mural-banner.jpg" alt="Wall Mural">
+                        <img src="./assets/wall_mural.jpg" alt="Wall Mural">
                     </div>
                     <div class="service-content">
                         <h3>Wall Mural Domain</h3>
@@ -93,7 +94,7 @@
                 <!-- Art Therapy -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="./assets/fine-arts-banner.jpg" alt="Art Therapy">
+                        <img src="./assets/theraphy.jpg" alt="Art Therapy">
                     </div>
                     <div class="service-content">
                         <h3>Art Therapy & Counseling</h3>
@@ -114,7 +115,7 @@
                 <!-- Teacher Training -->
                 <div class="service-card">
                     <div class="service-image">
-                        <img src="./assets/academy-banner.jpg" alt="Teacher Training">
+                        <img src="./assets/class.jpg" alt="Teacher Training">
                     </div>
                     <div class="service-content">
                         <h3>Art Teacher Training Program</h3>
@@ -227,7 +228,7 @@
                     <a href="#contact" class="btn">Join Artesa</a>
                 </div>
                 <div class="community-image">
-                    <img src="https://images.unsplash.com/photo-1513475382585-d06e58bcb0e0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1950&q=80" alt="Artist Community">
+                    <img src="./assets/arteasa.jpg" alt="Artist Community">
                 </div>
             </div>
         </div>
@@ -287,29 +288,37 @@
                         <p><i class="fas fa-map-marker-alt"></i> Chennai, Tamil Nadu, India</p>
                         <p><i class="fas fa-envelope"></i> info@artemclava.in</p>
                         <p><i class="fas fa-globe"></i> www.artemclava.in</p>
-                        <p><i class="fab fa-instagram"></i> @life_with.gia</p>
+                        <p><i class="fab fa-instagram"></i> @artemclava.india</p>
                     </div>
                 </div>
                 
                 <div class="contact-form">
-                    <form id="contactForm">
+                    <form id="contact-form">
                         <div class="form-group">
-                            <label for="name">Your Name</label>
-                            <input type="text" id="name" required>
+                            <input type="text" name="user_name" placeholder="Your Name" required>
                         </div>
                         <div class="form-group">
-                            <label for="email">Your Email</label>
-                            <input type="email" id="email" required>
+                            <input type="email" name="user_email" placeholder="Your Email" required>
                         </div>
                         <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" id="subject" required>
+                            <input type="tel" name="user_phone" placeholder="Your Phone">
                         </div>
                         <div class="form-group">
-                            <label for="message">Your Message</label>
-                            <textarea id="message" required></textarea>
+                            <select name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="wall-murals">Wall Murals</option>
+                                <option value="fine-arts">Fine Arts Courses</option>
+                                <option value="digital-arts">Digital Arts Courses</option>
+                                <option value="art-therapy">Art Therapy</option>
+                                <option value="teacher-training">Teacher Training</option>
+                                <option value="artesa">Artesa Community</option>
+                                <option value="other">Other</option>
+                            </select>
                         </div>
-                        <button type="submit" class="btn">Send Message</button>
+                        <div class="form-group">
+                            <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
                     </form>
                     <div id="formResponse" class="form-response"></div>
                 </div>
@@ -325,10 +334,8 @@
                     <h3>Artem Clava</h3>
                     <p>Luxury Art for Inspired Living. A creative house where art, design, and craftsmanship converge to redefine modern interiors and artistic education.</p>
                     <div class="social-links">
-                        <a href="#"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#"><i class="fab fa-instagram"></i></a>
-                        <a href="#"><i class="fab fa-twitter"></i></a>
-                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="https://www.instagram.com/artemclava.india?igsh=dWZoMGkxYjNoemox"><i class="fab fa-instagram"></i></a>
+                        <a href="https://www.linkedin.com/company/artem-calva/"><i class="fab fa-linkedin-in"></i></a>
                     </div>
                 </div>
                 
@@ -370,6 +377,205 @@
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <script>
+        // Initialize EmailJS
+        emailjs.init('7lxVhoy8JXRzyRyB4');
+
+        // Mobile Menu Toggle
+        const mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+        const navMenu = document.querySelector('nav ul');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            navMenu.classList.toggle('active');
+        });
+
+        // Tab Functionality for Courses
+        const tabBtns = document.querySelectorAll('.tab-btn');
+        const tabContents = document.querySelectorAll('.tab-content');
+
+        tabBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class from all buttons and contents
+                tabBtns.forEach(b => b.classList.remove('active'));
+                tabContents.forEach(c => c.classList.remove('active'));
+                
+                // Add active class to clicked button
+                btn.classList.add('active');
+                
+                // Show corresponding content
+                const tabId = btn.getAttribute('data-tab');
+                document.getElementById(tabId).classList.add('active');
+            });
+        });
+
+        // Smooth Scrolling for Anchor Links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if(targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if(targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                    
+                    // Close mobile menu if open
+                    navMenu.classList.remove('active');
+                }
+            });
+        });
+
+        // EmailJS Form Submission
+        const form = document.getElementById('contact-form');
+        const formResponse = document.getElementById('formResponse');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = form.querySelector('.btn-submit');
+            if (!submitBtn) {
+                console.error('Submit button not found');
+                return;
+            }
+
+            try {
+                // Show loading state
+                const originalBtnText = submitBtn.textContent;
+                submitBtn.disabled = true;
+                submitBtn.textContent = 'Sending...';
+
+                console.log('Attempting to send form data');
+                
+                // Send the form data
+                const response = await emailjs.sendForm(
+                    'service_a6bvzmk',
+                    'template_pnugeql',
+                    form
+                );
+
+                console.log('EmailJS response:', response);
+                
+                if (response.status === 200) {
+                    showFormResponse('Message sent successfully! We will contact you soon.', 'success');
+                    form.reset();
+                } else {
+                    throw new Error(`Unexpected status: ${response.status}`);
+                }
+                
+            } catch (error) {
+                console.error('Full error details:', error);
+                let errorMessage = 'Failed to send message. ';
+                
+                if (error.text) {
+                    try {
+                        const errorData = JSON.parse(error.text);
+                        errorMessage += `EmailJS error: ${errorData.error || error.text}`;
+                    } catch (e) {
+                        errorMessage += error.text;
+                    }
+                } else {
+                    errorMessage += error.message || 'Please try again later.';
+                }
+                
+                showFormResponse(errorMessage, 'error');
+            } finally {
+                // Reset button state
+                submitBtn.disabled = false;
+                submitBtn.textContent = 'Send Message';
+            }
+        });
+
+        function showFormResponse(message, type) {
+            formResponse.textContent = message;
+            formResponse.className = 'form-response ' + type;
+            formResponse.style.display = 'block';
+            
+            // Hide response after 5 seconds
+            setTimeout(() => {
+                formResponse.style.display = 'none';
+            }, 5000);
+        }
+
+        // Header Scroll Effect
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if(window.scrollY > 100) {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.1)';
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            } else {
+                header.style.boxShadow = '0 4px 12px rgba(0, 0, 0, 0.05)';
+                header.style.background = 'white';
+            }
+        });
+
+        // Enhanced Scroll Animation for both directions
+        let lastScrollY = window.scrollY;
+        let ticking = false;
+
+        function isElementInViewport(el) {
+            const rect = el.getBoundingClientRect();
+            return (
+                rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.85 &&
+                rect.bottom >= 0
+            );
+        }
+
+        function handleScrollAnimation() {
+            const elementsToAnimate = document.querySelectorAll('.about-text, .about-image, .service-card, .course-item, .community-text, .community-image, .future-item, .contact-info, .contact-form');
+            
+            elementsToAnimate.forEach(element => {
+                if (isElementInViewport(element)) {
+                    element.classList.add('animate');
+                } else {
+                    // Remove animation when element is out of viewport (for re-triggering)
+                    // Only remove if we're scrolling up significantly
+                    if (window.scrollY < lastScrollY - 100) {
+                        element.classList.remove('animate');
+                    }
+                }
+            });
+            
+            lastScrollY = window.scrollY;
+        }
+
+        function onScroll() {
+            if (!ticking) {
+                requestAnimationFrame(() => {
+                    handleScrollAnimation();
+                    ticking = false;
+                });
+                ticking = true;
+            }
+        }
+
+        // Initialize scroll animation for both directions
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('load', handleScrollAnimation);
+
+        // Add animation delay to service cards for staggered effect
+        document.addEventListener('DOMContentLoaded', () => {
+            const serviceCards = document.querySelectorAll('.service-card');
+            serviceCards.forEach((card, index) => {
+                card.style.transitionDelay = `${index * 0.1}s`;
+            });
+            
+            const futureItems = document.querySelectorAll('.future-item');
+            futureItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.1}s`;
+            });
+            
+            const courseItems = document.querySelectorAll('.course-item');
+            courseItems.forEach((item, index) => {
+                item.style.transitionDelay = `${index * 0.05}s`;
+            });
+            
+            // Initial animation check
+            handleScrollAnimation();
+        });
+    </script>
 </body>
 </html>
